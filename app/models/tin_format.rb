@@ -14,7 +14,8 @@ class TinFormat
     }
   }
 
-  def self.validate(tin, iso)
+  def self.validate(tin, args)
+    iso = args[:country]
     validation = Validation.new([],nil)
 
     RULES[iso.downcase].each do |rule|

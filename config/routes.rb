@@ -9,9 +9,11 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   scope :api do
-    namespace :v1 do
-      namespace :tin_formats do
-        post :validate
+    %w(v1 v2).each do |version|
+      namespace version.to_sym do
+        namespace :tin_formats do
+          post :validate
+        end
       end
     end
   end
