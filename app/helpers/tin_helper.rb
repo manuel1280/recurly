@@ -13,4 +13,8 @@ module TinHelper
       'unknown format'
     end
   end
+
+  def parameterize_tin(tin)
+    tin.parameterize.remove("-").upcase
+  end
 end

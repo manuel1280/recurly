@@ -2,7 +2,7 @@ class V1::TinFormatsController < ApplicationController
   before_action :validate_country_code
 
   def validate
-    tin_format = TinFormat.validate(tin_params[:tin], tin_params[:country_code])
+    tin_format = TinValidatorService.call(tin_params[:tin], tin_params[:country_code])
 
     if tin_format.errors.any?
       render json: { valid: false, errors: tin_format.errors.uniq }, status: :bad_request

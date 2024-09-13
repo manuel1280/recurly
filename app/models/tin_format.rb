@@ -18,7 +18,6 @@ class TinFormat
     validation = Validation.new([],nil)
 
     RULES[iso.downcase].each do |rule|
-      tin = tin.parameterize.remove("-").upcase
       type, pattern, length = rule[0], rule[1][0], rule[1][1]
 
       if tin.match?(pattern)
