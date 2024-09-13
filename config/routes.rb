@@ -7,4 +7,12 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  scope :api do
+    namespace :v1 do
+      namespace :tin_formats do
+        post :validate
+      end
+    end
+  end
 end
